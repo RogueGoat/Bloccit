@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
    before_save { self.email = email.downcase if email.present? }
+   
+   before_save :reconfiure_name
 
  # #3
    validates :name, length: { minimum: 1, maximum: 100 }, presence: true
@@ -14,4 +16,14 @@ class User < ActiveRecord::Base
 
  # #6
    has_secure_password
+   
+   def reconfigure_name
+       if name
+           name_array = []
+           name.split.each do |name_segment|
+               name_array << name_segment.capitalize
+           end
+           
+           self.name = name_array.join(" ")
+   end
 end

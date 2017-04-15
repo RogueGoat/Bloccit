@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
              name_array << name_segment.capitalize
       end
       self.name = name_array.join(" ")
-  end
+      end
   end
   
 end

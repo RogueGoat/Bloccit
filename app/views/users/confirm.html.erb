@@ -1,0 +1,20 @@
+<h2>Confirm your info to start posting!</h2>
+<div class = "row">
+    <div class = "col-md-4">
+        <h4>Double check in case you made a mistake!</h4>
+        <h5>Email: <% @user.email %></h5>
+        <h5>Name: <% @user.name %></h5>
+    </div>
+    </div>
+    
+    <div class = "col-md-4">
+        <%= button_to "Yes", {controller: "users", action: "create", params: params}, class: 'btn btn-success' %>
+    </div>
+    
+    <!-- this button doesn't work properly, this is where we had the get issue -->
+    <!-- <div class = "col-md-4">-->
+    <!--<%= button_to "No", {controller: "users", action: "new"}, class: 'btn btn-fail' %>-->
+    <!--</div>-->
+    
+    
+</div>

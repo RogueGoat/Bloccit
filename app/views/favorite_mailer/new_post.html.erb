@@ -1,0 +1,12 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <meta context="text/html; charset=TF-8" http-equiv="Content-Type"/>
+    </head>
+    <body>
+        <h1>Thanks for following <%= @post.title %>, you'll be privy to everything posted! If this gets annoying, feel free to unfollow at <% link_to "post", topic_post_url(@post.topic, @post%></h1>
+    <p>
+        <%= link_to "View Post on site", topic_posturl(@post.topic, @post) %>
+    </p>
+    </body>
+</html>

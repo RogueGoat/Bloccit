@@ -18,8 +18,33 @@
      </div>
    </div>
  </div>
- <h2>Posts</h2>
- <%= render @user.posts %>
+ <% if no_post_or_comment?(@user.posts, @user.comments)%>
+   <h2>There's no post or comment submitted; here's a blank slate!</h2>
+ <% end %>
+  
  
- <h2>Comments</h2>
- <%= render @user.comments %>
+<% if no_post_or_comment?(@user.posts, @user.comments) == false %>
+  <h2>Posts</h2>
+  <%= render @user.posts %>
+  <h2>Comments</h2>
+  <%= render @user.comments %>
+<% end %>
+
+<h2>These are a few of your favorite things!</h2>
+<% @user.favorites.each do |favorite| %>
+  <div class="media">
+    <div class="media-body">
+      <div class="gravatar-lives-here">
+        <%= image_tag favorite.post.user.avatar_url(30), class: "gravatar" %>
+      </div>
+      <h4 class="media-heading gravatar-lives-here">
+        <%= favorite.post.title %>
+      </h4>
+      <br>
+      <small>
+        <%= favorite.post.comments.count %> comments <br>
+        <%= favorite.post.up_votes %> up votes and <%= favorite.post.down_votes %> down votes
+      </small>
+    </div>
+  </div>
+<% end %>

@@ -48,9 +48,9 @@ admin = User.create!(
  )
  
  moderator = User.create!(
-  name:     'Moderator User',
-  email:    'moderator@example.com',
-  password: 'helloworld',
+  name:     'Bloccit Mod',
+  email:    'mod@bloccit.com',
+  password: 'iruletheworld',
   role:     'moderator'
 )
 
